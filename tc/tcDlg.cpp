@@ -244,7 +244,7 @@ void CTcDlg::OnSend()
 	UpdateData(TRUE);       //取回用户输入的信息
 	if (!m_strMsg.IsEmpty())
 	{
-		this->SendMsg(m_strCName, CString("all"), m_strMsg, FALSE);
+		this->SendMsg(m_strCName, CString("客户 2"), m_strMsg, FALSE);
 		//m_listMsg.AddString(m_strMsg);
 		m_strMsg = _T("");
 		UpdateData(FALSE);  //更新用户界面，将用户输入的消息删除。
@@ -262,6 +262,7 @@ void CTcDlg::SendMsg(CString &m_local_name, CString &m_dest_name, CString &m_str
 		msg.m_dest_name = m_dest_name;
 		msg.m_strBuf = m_local_name + ":" + m_strMsg;
 		msg.m_bClose = st;
+		//MessageBox(msg.m_local_name + "-" + msg.m_dest_name + "-" + msg.m_strBuf);
 
 		//调用消息对象的系列化函数，发送消息
 		msg.Serialize(*m_pArchiveOut);
